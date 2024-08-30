@@ -61,7 +61,10 @@ sudo rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 # cilium install
 
 #Setup kubens and kubectx
-
-sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
-sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
-sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+cd ~
+wget https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
+wget https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
+sudo chmod +x kubectx
+sudo chmod +x kubens
+mv kubens kubectx /usr/local/bin/
+sudo chown -R vagrant:vagrant /home/vagrant/.kube
